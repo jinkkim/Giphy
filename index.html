@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+
+
+    <link rel="stylesheet" type="text/css" href="assets/css/reset.css"/>
+    <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css"/>
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css"/>
+
+
+
+    <script type="text/javascript" src="assets/javascript/jquery-3.0.0.js"></script>
+    <script type="text/javascript" src="assets/javascript/popper.min.js"></script>
+    <script type="text/javascript" src="assets/javascript/bootstrap.min.js"></script>
+    <script type="text/javascript" src="assets/javascript/app.js"></script>
+
+
+
+
+
+    <title>Giphy Search!</title>
+  </head>
+
+  <body>
+    <h1 class="jumbotron container col-10 text-center mb-4 p-5" >🐕GIF finder🔍</h1>
+
+    <div class="container col-10 p-0">
+      <!-- Buttons  -->
+      <div id="queryButtons" class="p-3 mb-3">There will be buttons</div>
+
+    
+      <div class="row justify-content-around">
+          <!-- Search results  -->
+          <div id="searchResults" class = "d-flex flex-wrap col-8 p-1 mb-3">Search results will be here</div>
+
+          <!-- Action Submission Form  -->
+          <div class="col-3 mb-3 p-3">
+              <h2><legend>Query Submission</legend></h2>
+              <hr class="line">
+              <form class="form-group">
+                <label for="queryInput">Type your topic below</label>
+                <input id="queryInput" type="text" class = "col">
+              </form>
+              <div class="d-flex flex-column justify-content-center">
+                <button id="addQuery" type="submit" class = "btn btn-dark mb-1" >Add query topic</button>
+                <button id="removeQuery" type="submit" class = "btn btn-dark">Remove last topic</button>
+              </div>
+          </div>
+      </div>
+
+    </div>
+    <footer>
+      <p class = "jumbotron container text-center col-10 p-3 mt-4">&copy; Copyright 2018 Jin</p>
+    </footer>  
+  </body>
+</html>
