@@ -53,6 +53,7 @@ $( document ).ready(function() {
         displayTopicButtons();
     });
 
+    var results = "";
 
     function displayGif(){
         //ajax
@@ -68,12 +69,13 @@ $( document ).ready(function() {
             $("#searchResults").empty();
 
             //shows results of gifs
-            var results = response.data;
+            results = response.data;
             if (results == ""){
                 alert("There isn't a gif for this selected button.");
             }
 
-            for (var i=0; i<results.length; i++){
+            //for (var i=0; i<results.length; i++){
+            for (var i=0; i < 10; i++){
 
                 // pulling gif
                 var foundGIF = $("<img>");
@@ -84,20 +86,28 @@ $( document ).ready(function() {
                 // set the image state
                 foundGIF.attr("data-state", "still");
                 foundGIF.addClass("image");
-                foundGIF.addClass("m-1");
+                foundGIF.addClass("m-2");
 
                 // generate one div for each search result
                 var resultCell = $("<div>");
+
+                var title = results[i].title.slice(0, -3);
+                resultCell.append("<p class = 'text-center mb-0 mt-5'>" + title.substr(0,23) + "</p>");
                 resultCell.append(foundGIF);
-                resultCell.append("<p>Rating: " + results[i].rating + "</p>");
+                resultCell.append("<p class='mb-0 col-10 text-center'>Rating: " + results[i].rating + "</p>");
+                resultCell.append("<a href='" + results[i].images.fixed_height.url + "' class ='btn-sm btn-warning mt-0 offset-4 col-8' download> Download</a>");
+                
 
                 // adding resultCell to searchResults area
                 $("#searchResults").append(resultCell);
+                $("#more").show();
             
             }
         });
 
     };
+
+
 
     function displayGif2(topic){
         //ajax
@@ -112,12 +122,13 @@ $( document ).ready(function() {
             $("#searchResults").empty();
 
             //shows results of gifs
-            var results = response.data;
+            results = response.data;
             if (results == ""){
                 alert("There isn't a gif for this selected button.");
             }
 
-            for (var i=0; i<results.length; i++){
+            //for (var i=0; i<results.length; i++){
+            for (var i=0; i < 10; i++){
 
                 // pulling gif
                 var foundGIF = $("<img>");
@@ -128,16 +139,20 @@ $( document ).ready(function() {
                 // set the image state
                 foundGIF.attr("data-state", "still");
                 foundGIF.addClass("image");
-                foundGIF.addClass("m-1");
+                foundGIF.addClass("m-2");
 
                 // generate one div for each search result
                 var resultCell = $("<div>");
-                resultCell.append(foundGIF);
-                resultCell.append("<p>Rating: " + results[i].rating + "</p>");
 
+                var title = results[i].title.slice(0, -3);
+                resultCell.append("<p class = 'text-center mb-0 mt-5'>" + title.substr(0,23) + "</p>");
+                resultCell.append(foundGIF);
+                resultCell.append("<p class='mb-0 col-10 text-center'>Rating: " + results[i].rating + "</p>");
+                resultCell.append("<a href='" + results[i].images.fixed_height.url + "' class ='btn-sm btn-warning mt-0 offset-4 col-8' download> Download</a>");
+                
                 // adding resultCell to searchResults area
                 $("#searchResults").append(resultCell);
-            
+                $("#more").show();
             }
         });
 
@@ -158,6 +173,38 @@ $( document ).ready(function() {
 
     });
 
+    $("#more").click(function(){
+        for (var i=10; i < 20; i++){
+
+            // pulling gif
+            var foundGIF = $("<img>");
+            foundGIF.attr("src", results[i].images.fixed_height_still.url);
+            foundGIF.attr("data-still", results[i].images.fixed_height_still.url);
+            foundGIF.attr("data-animate", results[i].images.fixed_height.url);
+
+            // set the image state
+            foundGIF.attr("data-state", "still");
+            foundGIF.addClass("image");
+            foundGIF.addClass("m-2");
+
+            // generate one div for each search result
+            var resultCell = $("<div>");
+
+            var title = results[i].title.slice(0, -3);
+            resultCell.append("<p class = 'text-center mb-0 mt-5'>" + title.substr(0,23) + "</p>");
+            resultCell.append(foundGIF);
+            resultCell.append("<p class='mb-0 col-10 text-center'>Rating: " + results[i].rating + "</p>");
+            resultCell.append("<a href='" + results[i].images.fixed_height.url + "' class ='btn-sm btn-warning mt-0 offset-4 col-8' download> Download</a>");
+            
+            // adding resultCell to searchResults area
+            $("#searchResults").append(resultCell);
+            
+        }
+        $("#more").hide();
+    });
+
     displayTopicButtons();
+    $("#more").hide();
 
 });
+
