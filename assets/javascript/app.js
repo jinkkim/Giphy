@@ -58,7 +58,7 @@ $( document ).ready(function() {
     function displayGif(){
         //ajax
         var topic = $(this).attr("data-name");
-        var queryURL = "http://api.giphy.com/v1/gifs/search?q=" + topic + "&api_key=J7j8kfdm8HGROJpl31kkxwXHhWDF5EoD";
+        var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + topic + "&api_key=J7j8kfdm8HGROJpl31kkxwXHhWDF5EoD";
         
         $.ajax({
             url: queryURL,
@@ -111,7 +111,7 @@ $( document ).ready(function() {
 
     function displayGif2(topic){
         //ajax
-        var queryURL = "http://api.giphy.com/v1/gifs/search?q=" + topic + "&api_key=J7j8kfdm8HGROJpl31kkxwXHhWDF5EoD";
+        var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + topic + "&api_key=J7j8kfdm8HGROJpl31kkxwXHhWDF5EoD";
         
         $.ajax({
             url: queryURL,
